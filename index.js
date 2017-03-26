@@ -28,11 +28,14 @@ http.listen(3000, function() {
   console.log('Kart Island listening on port 3000!')
 })
 
+//TODO move this 'use' to inside the game socket file like lobby
 io.use(function(socket, next) {
   session(socket.handshake, {}, next);
 });
 
-io.on('connection', function(socket) {
+lobby.init(io, app, session);
+
+/*io.on('connection', function(socket) {
   console.log('io connection started using session id ' + socket.handshake.session.uid);
 
   socket.on('disconnect', function() {
@@ -41,3 +44,4 @@ io.on('connection', function(socket) {
     //TODO: should remove from client list
   });
 })
+*/

@@ -30,7 +30,7 @@
   <a href="./creategame">Create new game</a>
 </body>
 <script>
-  var socket = io();
+  var socket = io('/lobby');
   
   socket.on('connect', function() {
     socket.emit('getname');

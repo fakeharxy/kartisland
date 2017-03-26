@@ -5,7 +5,7 @@ router.use(function timeLog (req, res, next) {
   console.log('Time: ', Date.now())
   checkSessionId(req);
   next()
-})
+});
 
 router.use(express.static('public'));
 
