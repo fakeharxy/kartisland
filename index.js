@@ -21,11 +21,11 @@ var session = Session({
 app.use(session);
 app.use(express.static('public'));
 
-// app.use('/', router);
+app.use('/', router);
 
 
-app.listen(3000, function() {
-  console.log('Example app listening on port 3000!')
+http.listen(3000, function() {
+  console.log('Kart Island listening on port 3000!')
 })
 
 io.use(function(socket, next) {
