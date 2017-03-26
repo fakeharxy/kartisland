@@ -16,10 +16,10 @@
   <p> One day there will be rules <a href='./help.html'>here</a>. </p>
   <br/>
   <input id='nameEntry' autocomplete='off' />
-  <button onclick="onSetName()">Set name</button>
+  <button onclick="onSetName()">Change name</button>
   <div id="chatarea" style="height: 150px; overflow: auto">
     <ul id="messages"></ul>
-  </div>  
+  </div>
   <form action="" id='message_form'>
     <input id="m" autocomplete="off" />
     <button>Send</button>
@@ -31,11 +31,11 @@
 </body>
 <script>
   var socket = io('/lobby');
-  
+
   socket.on('connect', function() {
     socket.emit('getname');
   });
-  
+
   $('#message_form').submit(function() {
     var m = $('#m');
     if (m.val()) {
@@ -44,7 +44,7 @@
     }
     return false;
   });
-  
+
   socket.on('lobby', function(msg) {
     $('#messages').append($('<li>').text(msg));
     $("#chatarea").scrollTop($("#chatarea")[0].scrollHeight);

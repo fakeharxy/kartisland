@@ -2,17 +2,17 @@ module.exports = {
 
   init: function(io, app, session) {
     var nsp = io.of('/lobby');
-    
+
     //make sure this socket namespace uses sessions
     nsp.use(function(socket, next) {
       session(socket.handshake, {}, next);
     });
-    
+
     nsp.on('connection', function(socket) {
-      console.log('lobby socket connection started using session id ' + socket.handshake.session.uid); 
-      
+      console.log('lobby socket connection started using session id ' + socket.handshake.session.uid);
+
       if (app.clients[socket.handshake.session.uid]) { //check the server still remembers this session id
-      
+
         socket.on('setname', function(newname) {
           var uid = socket.handshake.session.uid;
           var oldname = app.clients[uid].name;
@@ -33,12 +33,12 @@ module.exports = {
             msg);
           nsp.emit('lobby', app.clients[uid].name + ': ' + msg);
         });
-        
+
       } else {
         console.log("(session no longer active; lobby connection ignored)"); //should send an expiration message to client to refresh the page
       }
     });
-    
+
     console.log("[lobby init finished]");
   }
 

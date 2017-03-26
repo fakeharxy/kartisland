@@ -22,12 +22,18 @@ function checkSessionId(req) {
     var uid = Date.now();
     req.session.uid = uid;
     var newplayer = {
-      name: "annnnnonnn"
+      name: nameGenerator()
     };
     req.app.clients[uid] = newplayer;
     console.log('new session! assigned id ' + uid);
     return false;
   }
+}
+
+function nameGenerator() {
+  var nameArray = ['Paul', 'Thomas', 'Mary', 'Harvey', 'Sophie', 'Lord Thribble', 'Matt The Hoople', "Terry", "Kiera", "Lucy", "Nigel", "Mufasa", "Bill", "Peter", "Madame Shilby", "The Dragon Slayer", "Furby", "Captain Karts", "rAnDoMnAmE"];
+
+  return nameArray[Math.floor(Math.random() * nameArray.length)];
 }
 
 module.exports = router
