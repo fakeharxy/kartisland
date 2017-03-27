@@ -35,6 +35,10 @@ io.use(function(socket, next) {
 
 lobby.init(io, app, session);
 
+var Cell = require('./game/cell.js');
+var cell = Object.create(Cell);
+console.log("cell.type: " + cell.type);
+
 /*io.on('connection', function(socket) {
   console.log('io connection started using session id ' + socket.handshake.session.uid);
 

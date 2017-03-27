@@ -1,9 +1,10 @@
-module.exports = {
-  TYPES: {
-    'WATER': 0,
-    'BRIDGE': 1
-  },
+var TYPES = {
+  WATER: 0,
+  BRIDGE: 1
+};
 
-  type: this.TYPES['WATER']
+module.exports = {
+  
+  type: TYPES.WATER
 
 }
