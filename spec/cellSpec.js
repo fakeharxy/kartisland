@@ -6,8 +6,8 @@ beforeEach(function() {
 });
 
 describe("cell", function() {
-  it("has a type", function() {
-    expect(cell.type).toEqual(jasmine.anything());
+  it("has a default type of 0", function() {
+    expect(cell.type).toEqual(0);
   });
 
 });
