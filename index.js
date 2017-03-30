@@ -23,7 +23,6 @@ app.use(express.static('public'));
 
 app.use('/', router);
 
-
 http.listen(3000, function() {
   console.log('Kart Island listening on port 3000!')
 })

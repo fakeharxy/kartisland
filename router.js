@@ -4,13 +4,17 @@ var router = express.Router()
 router.use(function timeLog (req, res, next) {
   console.log('Time: ', Date.now())
   checkSessionId(req);
-  next()
+  next();
 });
 
 router.use(express.static('public'));
 
 router.get('/', function(req, res) {
   res.sendfile('public/lobby.html');
+});
+
+router.get('/game', function(req, res) {
+  res.sendfile('public/game.html');
 });
 
 function checkSessionId(req) {
